@@ -35,6 +35,6 @@ def randomQuote():
     "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. – Ralph Waldo Emerson"
     ]
     quote = random.choice(quotes)
-    return {"img": "url", "status": quote}
+    return render_template("randomQuote.html", quote=quote)
 
 app.run(debug=True)
