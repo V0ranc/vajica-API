@@ -20,6 +20,10 @@ def coinData():
     else:
         return {"img": "https://i.postimg.cc/zysdXN8w/tail.png", "status": status}
     
+@app.route("/quoteData")
+def quouteData():
+    return render_template("randomQuote.html")
+
 @app.route("/randomQuote")
 def randomQuote():
     quotes = [
@@ -35,6 +39,6 @@ def randomQuote():
     "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. – Ralph Waldo Emerson"
     ]
     quote = random.choice(quotes)
-    return render_template("randomQuote.html", quote=quote)
+    return jsonify({"quote": quote})
 
 app.run(debug=True)
